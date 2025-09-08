@@ -10,7 +10,7 @@ function ex1() {
     person.firstName = "Jun";
     cars[0] = "what";
     
-    return "" // e.g., "YournalSaab"
+    return newperson.firstName + newcars[0]; // e.g., "YournalSaab"
 
 }
 
@@ -32,9 +32,8 @@ function ex2() {
             console.log(true != true)
 
     */
-
-    return "" // e.g., the result of the first two expressions is "534NaN"
-
+        return (5 + "34")+("Bob" - "bill")+(5 - "4")+(5 % 10)+(true + true)+(false - true)+(5 >= 1)+("A" > "B")+("a" > "A")+(true != true)
+        // e.g., the result of the first two expressions is "534NaN"
 }
 
 function ex3(firstNumber, secondNumber) {
@@ -45,6 +44,11 @@ function ex3(firstNumber, secondNumber) {
             - else return the string "NaN"
 
     */
+   if (isNaN(Number(firstNumber)) || isNaN(Number(secondNumber))) {
+        return "NaN";
+   } else {
+        return Number(firstNumber) + Number(secondNumber);
+   }
       
 }
 
@@ -68,8 +72,11 @@ function ex4(persons) {
 
         (in this example, the function return 44)
     */
-
-    return ""
+    for (person of persons) {
+        if (person['name'] == 'The Chosen One') {
+            return person['age'];
+        }
+    }
    
 }
 
@@ -83,8 +90,11 @@ function ex5(str) {
         **A palindrome is a string which reads the same backward as forward. For example, “Race Car” and “Anna” are palindromes. “Apple Pie” and “John” are not. Ignore spaces in deciding a palindrome.
 
     */
-
-    return ""
+    revStr = str.split('').reverse().join('');
+    if (revStr == str) {
+        return true
+    }
+    return false
 
 }
 
@@ -107,7 +117,11 @@ function computeAverageScore(students) {
 
     */
     let result = 0
-   
+    let sum = 0
+    for (student of students) {
+        sum += Number(student['score']);
+    }
+    result = sum / students.length
 
     return result
 }
@@ -123,6 +137,11 @@ function checkStatus(student) {
           
         (in this example, the function return 'Pass')
 */
+    var score = Number(student.score);
+    if (score >= 50) {
+        return "Pass";
+    }
+    return "Fail"
    
 }
 
